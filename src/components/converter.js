@@ -139,7 +139,7 @@ export default function Converter() {
               <label htmlFor="binary">Custom Base: </label>
               <Dropdown
                 options={OPTIONS}
-                className="focus:border-2 focus:border-white rounded-md absolute right-[6rem] w-10 z-10 bg-purple-600 px-2"
+                className="focus:border-2 focus:border-white rounded-md absolute right-[5rem] w-14 z-10 bg-purple-600 px-2"
                 onChange={handleCustomBaseSelect}
                 placeholder="none"
               />
