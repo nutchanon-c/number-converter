@@ -14,7 +14,7 @@ export default function Converter() {
 
   useEffect(() => {
     if (customBase) {
-      setCustomResult(Number(input).toString(customBase));
+      setCustomResult(Number(input).toString(customBase).toUpperCase());
     }
   }, [customBase, input]);
 
@@ -33,7 +33,7 @@ export default function Converter() {
         setHexResult(Number(e.target.value).toString(16).toUpperCase());
         setOctResult(Number(e.target.value).toString(8).toUpperCase());
         if (customBase) {
-            setCustomResult(Number(e.target.value).toString(customBase));
+            setCustomResult(Number(e.target.value).toString(customBase).toUpperCase());
         //   if (input !== "") {
         //   } else {
         //     setCustomBase("custom");
