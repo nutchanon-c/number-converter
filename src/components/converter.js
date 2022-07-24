@@ -33,11 +33,11 @@ export default function Converter() {
         setHexResult(Number(e.target.value).toString(16).toUpperCase());
         setOctResult(Number(e.target.value).toString(8).toUpperCase());
         if (customBase) {
-          if (input !== "") {
             setCustomResult(Number(e.target.value).toString(customBase));
-          } else {
-            setCustomBase("custom");
-          }
+        //   if (input !== "") {
+        //   } else {
+        //     setCustomBase("custom");
+        //   }
         }
       } else {
         setInvalidInput(true);
