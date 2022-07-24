@@ -67,23 +67,23 @@ export default function Converter(props) {
   function notify(message) {
     props.notify(message);
   }
-  function handleCopy(e) {
+  async function handleCopy(e) {
     // console.log("copy", e);
     switch (e.currentTarget.id) {
       case "binary-copy":
-        navigator.clipboard.writeText(binaryResult);
+        await navigator.clipboard.writeText(binaryResult);
         notify("Copied to clipboard");
         break;
       case "oct-copy":
-        navigator.clipboard.writeText(octResult);
+        await navigator.clipboard.writeText(octResult);
         notify("Copied to clipboard");
         break;
       case "hex-copy":
-        navigator.clipboard.writeText(hexResult);
+        await navigator.clipboard.writeText(hexResult);
         notify("Copied to clipboard");
         break;
       case "custom-copy":
-        navigator.clipboard.writeText(customResult);
+        await navigator.clipboard.writeText(customResult);
         notify("Copied to clipboard");
         break;
       default:
@@ -126,7 +126,13 @@ export default function Converter(props) {
                   value={binaryResult}
                   id="binary"
                 />
-                <BiCopy onClick={handleCopy} id="binary-copy" size={20} />
+
+                <BiCopy
+                  onClick={handleCopy}
+                  id="binary-copy"
+                  size={20}
+                  className="cursor-pointer"
+                />
               </div>
             </div>
             <div className="flex flex-col gap-2">
@@ -140,7 +146,12 @@ export default function Converter(props) {
                   value={octResult}
                   id="binary"
                 />
-                <BiCopy onClick={handleCopy} id="oct-copy" size={20} />
+                <BiCopy
+                  onClick={handleCopy}
+                  id="oct-copy"
+                  size={20}
+                  className="cursor-pointer"
+                />
               </div>
             </div>
             <div className="flex flex-col gap-2">
@@ -154,7 +165,12 @@ export default function Converter(props) {
                   value={hexResult}
                   id="binary"
                 />
-                <BiCopy onClick={handleCopy} id="hex-copy" size={20} />
+                <BiCopy
+                  onClick={handleCopy}
+                  id="hex-copy"
+                  size={20}
+                  className="cursor-pointer"
+                />
               </div>
             </div>
             <div className="flex flex-col gap-2">
@@ -178,7 +194,12 @@ export default function Converter(props) {
                   disabled={!customBase}
                 />
                 {customBase && (
-                  <BiCopy onClick={handleCopy} id="custom-copy" size={20} />
+                  <BiCopy
+                    onClick={handleCopy}
+                    id="custom-copy"
+                    size={20}
+                    className="cursor-pointer"
+                  />
                 )}
               </div>
             </div>
