@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from "react-dropdown";
 import { BiCopy } from "react-icons/bi";
-const options = ["none", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+const OPTIONS = ["none", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
 export default function Converter() {
   const [binaryResult, setBinaryResult] = useState("binary");
@@ -138,7 +138,7 @@ export default function Converter() {
             <div className="flex flex-row relative">
               <label htmlFor="binary">Custom Base: </label>
               <Dropdown
-                options={options}
+                options={OPTIONS}
                 className="focus:border-2 focus:border-white rounded-md absolute right-[6rem] w-10 z-10 bg-purple-600 px-2"
                 onChange={handleCustomBaseSelect}
                 placeholder="none"
