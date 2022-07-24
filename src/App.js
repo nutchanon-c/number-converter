@@ -1,16 +1,33 @@
 import Converter from "./components/converter";
-
+import { useMediaQuery } from "react-responsive";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const notify = (message) => {
+    if (message === "Error") {
+      toast.error(message);
+    } else {
+      toast.success(message);
+    }
+  };
+
   return (
-    <div className="p-10 bg-black text-white top-[50%]">
+    <div className="py-10 bg-black text-white top-[50%] h-screen max-h-screen flex flex-col">
       <div className="flex flex-col w-full items-center">
-        <h1 className="text-6xl">Number Base Converter</h1>
+        <h1
+          className={`${isMobile ? "text-5xl" : "text-6xl"} ${
+            isMobile ? "px-10" : ""
+          }`}
+        >
+          Number Base Converter
+        </h1>
         <hr className="border-[1px] border-white w-[80%] my-5" />
         <div className="top-[50%]">
-          <Converter />
+          <Converter notify={notify} />
         </div>
       </div>
-      <div className="absolute bottom-5 right-5">
+      <footer className="flex flex-col mt-auto text-center w-full text-base">
         <p>
           Created by{" "}
           <a
@@ -22,7 +39,18 @@ function App() {
             nutchanon-c
           </a>
         </p>
-      </div>
+      </footer>
+      <ToastContainer
+        className="mb-16"
+        position="bottom-center"
+        autoClose={500}
+        closeOnClick={true}
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+        hideProgressBar={true}
+        limit={1}
+        theme="dark"
+      />
     </div>
   );
 }
