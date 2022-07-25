@@ -53,8 +53,8 @@ export default function Converter(props) {
   }
 
   function handleCustomBaseSelect(e) {
-    console.log(e.target.value);
-    console.log(e.target.value === "none");
+    // console.log(e.target.value);
+    // console.log(e.target.value === "none");
     if (e.value === "none") {
       setCustomBase(null);
       setCustomResult("select base");
@@ -180,7 +180,7 @@ export default function Converter(props) {
               <div className="flex flex-row relative">
                 <label htmlFor="binary">Custom Base: </label>
                 <select
-                  className="focus:border-2 focus:border-white rounded-md w-16 h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
+                  className="rounded-md w-16 h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
                   onChange={handleCustomBaseSelect}
                   defaultValue=""
                 >
@@ -305,7 +305,7 @@ export default function Converter(props) {
             <div className="flex flex-row items-center">
               <label htmlFor="binary">Custom Base: </label>
               <select
-                className="focus:border-2 focus:border-white rounded-md w-16 h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
+                className="rounded-md w-16 h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
                 onChange={handleCustomBaseSelect}
                 defaultValue=""
               >
