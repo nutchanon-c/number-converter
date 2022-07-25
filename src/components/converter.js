@@ -91,146 +91,14 @@ export default function Converter(props) {
     }
   }
 
-  if (isMobile) {
-    return (
-      <div className="items-center justify-center">
-        <form
-          onSubmit={handleSubmit}
-          className="space-x-8 flex flex-col"
-          autoComplete="off"
-        >
-          <div className="flex flex-col gap-2 px-8">
-            <label htmlFor="input" className="font-bold">
-              Decimal Input
-            </label>
-            <input
-              value={input}
-              type="text"
-              inputMode="numeric"
-              onChange={handleOnChange}
-              className={`border-2 ${
-                invalidInput ? "border-red-500" : "border-[#0cead9]"
-              } rounded-lg focus:outline-none text-black h-10 px-3`}
-              id="input"
-            />
-            {invalidInput && <p className="text-red-500">Numbers only</p>}
-            <hr className="my-3" />
-          </div>
-
-          <div className="space-y-5">
-            <div className="flex flex-col gap-2">
-              <label htmlFor="binary">Binary (Base 2)</label>
-              <div className="flex flex-row items-center gap-3">
-                <input
-                  type="text"
-                  onChange={handleOnChange}
-                  className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
-                  disabled={true}
-                  value={binaryResult}
-                  id="binary"
-                />
-
-                <BiCopy
-                  onClick={handleCopy}
-                  id="binary-copy"
-                  size={20}
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="binary">Octal (Base 8)</label>
-              <div className="flex flex-row items-center gap-3">
-                <input
-                  type="text"
-                  onChange={handleOnChange}
-                  className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
-                  disabled={true}
-                  value={octResult}
-                  id="binary"
-                />
-                <BiCopy
-                  onClick={handleCopy}
-                  id="oct-copy"
-                  size={20}
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="binary">Hexadecimal (Base 16)</label>
-              <div className="flex flex-row items-center gap-3">
-                <input
-                  type="text"
-                  onChange={handleOnChange}
-                  className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
-                  disabled={true}
-                  value={hexResult}
-                  id="binary"
-                />
-                <BiCopy
-                  onClick={handleCopy}
-                  id="hex-copy"
-                  size={20}
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-row relative">
-                <label htmlFor="binary">Custom Base: </label>
-                <select
-                  className="rounded-md w-16 h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
-                  onChange={handleCustomBaseSelect}
-                  defaultValue=""
-                >
-                  <option value="" defaultValue={true} disabled hidden>
-                    none
-                  </option>
-                  {OPTIONS.map((e) => {
-                    return (
-                      <option value={e} key={e}>
-                        {e}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-              <div className="flex flex-row items-center gap-3">
-                <input
-                  type="text"
-                  onChange={handleOnChange}
-                  className={`border-2 border-[#5c3a92] rounded-lg text-black h-10 px-3 outline-none ${
-                    customBase ? "disabled:bg-white" : "disabled:bg-gray-500"
-                  }`}
-                  disabled={true}
-                  value={customResult}
-                  id="custom"
-                  // disabled={!customBase}
-                />
-                {customBase && (
-                  <BiCopy
-                    onClick={handleCopy}
-                    id="custom-copy"
-                    size={20}
-                    className="cursor-pointer"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    );
-  }
   return (
     <div>
       <form
         onSubmit={handleSubmit}
-        className="space-x-8 flex flex-row"
+        className={`space-x-8 flex ${isMobile ? "flex-col" : "flex-row"}`}
         autoComplete="off"
       >
-        <div className="flex flex-col gap-2">
+        <div className={`flex flex-col gap-2 ${isMobile ? "px-8" : ""}`}>
           <label htmlFor="input">Decimal Input</label>
           <input
             value={input}
@@ -242,6 +110,7 @@ export default function Converter(props) {
             id="input"
           />
           {invalidInput && <p className="text-red-500">Numbers only</p>}
+          {isMobile && <hr className="my-3" />}
         </div>
         <div className="space-y-5">
           <div className="flex flex-col gap-2">
