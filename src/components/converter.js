@@ -95,7 +95,11 @@ export default function Converter(props) {
   if (isMobile) {
     return (
       <div className="items-center justify-center">
-        <form onSubmit={handleSubmit} className="space-x-8 flex flex-col">
+        <form
+          onSubmit={handleSubmit}
+          className="space-x-8 flex flex-col"
+          autoComplete="off"
+        >
           <div className="flex flex-col gap-2 px-8">
             <label htmlFor="input" className="font-bold">
               Decimal Input
@@ -121,8 +125,8 @@ export default function Converter(props) {
                 <input
                   type="text"
                   onChange={handleOnChange}
-                  className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none"
-                  //   disabled={true}
+                  className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                  disabled={true}
                   value={binaryResult}
                   id="binary"
                 />
@@ -141,8 +145,8 @@ export default function Converter(props) {
                 <input
                   type="text"
                   onChange={handleOnChange}
-                  className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none"
-                  //   disabled={true}
+                  className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                  disabled={true}
                   value={octResult}
                   id="binary"
                 />
@@ -160,8 +164,8 @@ export default function Converter(props) {
                 <input
                   type="text"
                   onChange={handleOnChange}
-                  className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none"
-                  //   disabled={true}
+                  className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                  disabled={true}
                   value={hexResult}
                   id="binary"
                 />
@@ -187,11 +191,13 @@ export default function Converter(props) {
                 <input
                   type="text"
                   onChange={handleOnChange}
-                  className="border-2 border-[#5c3a92] rounded-lg text-black h-10 px-3 outline-none"
-                  //   disabled={true}
+                  className={`border-2 border-[#5c3a92] rounded-lg text-black h-10 px-3 outline-none ${
+                    customBase ? "disabled:bg-white" : "disabled:bg-gray-500"
+                  }`}
+                  disabled={true}
                   value={customResult}
                   id="custom"
-                  disabled={!customBase}
+                  // disabled={!customBase}
                 />
                 {customBase && (
                   <BiCopy
@@ -210,7 +216,11 @@ export default function Converter(props) {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit} className="space-x-8 flex flex-row">
+      <form
+        onSubmit={handleSubmit}
+        className="space-x-8 flex flex-row"
+        autoComplete="off"
+      >
         <div className="flex flex-col gap-2">
           <label htmlFor="input">Decimal Input</label>
           <input
@@ -231,8 +241,8 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none"
-                //   disabled={true}
+                className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                disabled={true}
                 value={binaryResult}
                 id="binary"
               />
@@ -245,8 +255,8 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none"
-                //   disabled={true}
+                className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                disabled={true}
                 value={octResult}
                 id="binary"
               />
@@ -259,8 +269,8 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none"
-                //   disabled={true}
+                className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                disabled={true}
                 value={hexResult}
                 id="binary"
               />
@@ -281,11 +291,13 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#5c3a92] rounded-lg text-black h-10 px-3 outline-none"
-                //   disabled={true}
+                className={`border-2 border-[#5c3a92] rounded-lg text-black h-10 px-3 outline-none ${
+                  customBase ? "disabled:bg-white" : "disabled:bg-gray-500"
+                }`}
+                disabled={true}
                 value={customResult}
                 id="custom"
-                disabled={!customBase}
+                // disabled={!customBase}
               />
               {customBase && (
                 <BiCopy onClick={handleCopy} id="custom-copy" size={20} />
