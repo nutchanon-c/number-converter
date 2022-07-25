@@ -13,7 +13,7 @@ function App() {
   };
 
   return (
-    <div className="py-10 bg-black text-white top-[50%] h-screen max-h-screen flex flex-col">
+    <div className={`py-10 bg-black text-white top-[50%] h-screen max-h-screen flex flex-col ${isMobile ? "pb-28" : "pb-10"}`}>
       <div className="flex flex-col w-full items-center">
         <h1
           className={`${isMobile ? "text-5xl" : "text-6xl"} ${
