@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BiCopy } from "react-icons/bi";
-import { useMediaQuery } from "react-responsive";
 const OPTIONS = [];
 for (var i = 2; i < 37; i++) {
   OPTIONS.push(i);
@@ -14,7 +13,6 @@ export default function Converter(props) {
   const [input, setInput] = useState("");
   const [invalidInput, setInvalidInput] = useState(false);
   const [customBase, setCustomBase] = useState(null);
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   useEffect(() => {
     if (customBase) {
@@ -99,10 +97,10 @@ export default function Converter(props) {
     <div>
       <form
         onSubmit={handleSubmit}
-        className={`space-x-8 flex ${isMobile ? "flex-col" : "flex-row"}`}
+        className={`space-x-8 flex md:flex-row flex-col`}
         autoComplete="off"
       >
-        <div className={`flex flex-col gap-2 ${isMobile ? "px-8" : ""}`}>
+        <div className={`flex flex-col gap-2 px-8 md:px-0`}>
           <label htmlFor="input">Decimal Input</label>
           <input
             value={input}
@@ -115,7 +113,7 @@ export default function Converter(props) {
             inputMode="numeric"
           />
           {invalidInput && <p className="text-red-500">Numbers only</p>}
-          {isMobile && <hr className="my-3" />}
+       <hr className="my-3 block md:hidden" />
         </div>
         <div className="space-y-5">
           <div className="flex flex-col gap-2">
@@ -124,7 +122,7 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-500"
                 disabled={true}
                 value={binaryResult}
                 id="binary"
@@ -143,7 +141,7 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-500"
                 disabled={true}
                 value={octResult}
                 id="binary"
@@ -162,7 +160,7 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none disabled:bg-white"
+                className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-500"
                 disabled={true}
                 value={hexResult}
                 id="binary"
@@ -200,7 +198,7 @@ export default function Converter(props) {
                 type="text"
                 onChange={handleOnChange}
                 className={`border-2 border-[#5c3a92] rounded-lg text-black h-10 px-3 outline-none ${
-                  customBase ? "disabled:bg-white" : "disabled:bg-gray-500"
+                  customBase ? "disabled:bg-gray-500" : "disabled:bg-gray-500"
                 }`}
                 disabled={true}
                 value={customResult}

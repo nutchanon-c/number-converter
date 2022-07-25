@@ -1,9 +1,7 @@
 import Converter from "./components/converter";
-import { useMediaQuery } from "react-responsive";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const notify = (message) => {
     if (message === "Error") {
       toast.error(message);
@@ -13,12 +11,13 @@ function App() {
   };
 
   return (
-    <div className={`py-10 bg-black text-white top-[50%] h-screen max-h-screen flex flex-col ${isMobile ? "pb-28" : "pb-10"}`}>
+    <div
+      className={`py-10 bg-black text-white top-[50%] h-screen max-h-screen flex flex-col pb-28 md:pb-10`}
+    >
       <div className="flex flex-col w-full items-center">
         <h1
-          className={`${isMobile ? "text-5xl" : "text-6xl"} ${
-            isMobile ? "px-10" : ""
-          }`}
+          className={`text-5xl md:text-6xl
+            px-10 md:px-0`}
         >
           Number Base Converter
         </h1>
