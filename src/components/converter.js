@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Dropdown from "react-dropdown";
 import { BiCopy } from "react-icons/bi";
 import { useMediaQuery } from "react-responsive";
-// const OPTIONS = ["none", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-const OPTIONS = ["none"];
+const OPTIONS = [];
 for (var i = 2; i < 37; i++) {
   OPTIONS.push(i);
 }
@@ -55,12 +53,13 @@ export default function Converter(props) {
   }
 
   function handleCustomBaseSelect(e) {
-    // console.log(e.value === "none");
+    console.log(e.target.value);
+    console.log(e.target.value === "none");
     if (e.value === "none") {
       setCustomBase(null);
       setCustomResult("select base");
     } else {
-      setCustomBase(e.value);
+      setCustomBase(e.target.value);
     }
   }
 
@@ -107,7 +106,7 @@ export default function Converter(props) {
             <input
               value={input}
               type="text"
-              inputmode="numeric"
+              inputMode="numeric"
               onChange={handleOnChange}
               className={`border-2 ${
                 invalidInput ? "border-red-500" : "border-[#0cead9]"
@@ -180,12 +179,22 @@ export default function Converter(props) {
             <div className="flex flex-col gap-2">
               <div className="flex flex-row relative">
                 <label htmlFor="binary">Custom Base: </label>
-                <Dropdown
-                  options={OPTIONS}
-                  className="focus:border-2 focus:border-white rounded-md absolute right-[5rem] w-14 z-10 bg-purple-600 px-2 cursor-pointer"
+                <select
+                  className="focus:border-2 focus:border-white rounded-md w-16 h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
                   onChange={handleCustomBaseSelect}
-                  placeholder="none"
-                />
+                  defaultValue=""
+                >
+                  <option value="" defaultValue={true} disabled hidden>
+                    none
+                  </option>
+                  {OPTIONS.map((e) => {
+                    return (
+                      <option value={e} key={e}>
+                        {e}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
               <div className="flex flex-row items-center gap-3">
                 <input
@@ -278,14 +287,24 @@ export default function Converter(props) {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="flex flex-row relative">
+            <div className="flex flex-row items-center">
               <label htmlFor="binary">Custom Base: </label>
-              <Dropdown
-                options={OPTIONS}
-                className="focus:border-2 focus:border-white rounded-md absolute right-[5rem] w-14 z-10 bg-purple-600 px-2 cursor-pointer"
+              <select
+                className="focus:border-2 focus:border-white rounded-md w-16 h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
                 onChange={handleCustomBaseSelect}
-                placeholder="none"
-              />
+                defaultValue=""
+              >
+                <option value="" defaultValue={true} disabled hidden>
+                  none
+                </option>
+                {OPTIONS.map((e) => {
+                  return (
+                    <option value={e} key={e}>
+                      {e}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
             <div className="flex flex-row items-center gap-3">
               <input
