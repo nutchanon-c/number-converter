@@ -112,6 +112,7 @@ export default function Converter(props) {
               invalidInput ? "border-red-500" : "border-[#0cead9]"
             } rounded-lg focus:outline-none text-black h-10 px-3`}
             id="input"
+            inputMode="numeric"
           />
           {invalidInput && <p className="text-red-500">Numbers only</p>}
           {isMobile && <hr className="my-3" />}
