@@ -29,7 +29,7 @@ export default function Converter(props) {
 
   function handleOnChange(e) {
     // console.log(e.target.id);
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.id === "input") {
       if (!isNaN(e.target.value)) {
         setInput(e.target.value);
@@ -255,7 +255,12 @@ export default function Converter(props) {
                 value={binaryResult}
                 id="binary"
               />
-              <BiCopy onClick={handleCopy} id="binary-copy" size={20} />
+              <BiCopy
+                onClick={handleCopy}
+                id="binary-copy"
+                size={20}
+                className="cursor-pointer"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-2">
@@ -269,7 +274,12 @@ export default function Converter(props) {
                 value={octResult}
                 id="binary"
               />
-              <BiCopy onClick={handleCopy} id="oct-copy" size={20} />
+              <BiCopy
+                onClick={handleCopy}
+                id="oct-copy"
+                size={20}
+                className="cursor-pointer"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-2">
@@ -283,7 +293,12 @@ export default function Converter(props) {
                 value={hexResult}
                 id="binary"
               />
-              <BiCopy onClick={handleCopy} id="hex-copy" size={20} />
+              <BiCopy
+                onClick={handleCopy}
+                id="hex-copy"
+                size={20}
+                className="cursor-pointer"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-2">
@@ -319,7 +334,12 @@ export default function Converter(props) {
                 // disabled={!customBase}
               />
               {customBase && (
-                <BiCopy onClick={handleCopy} id="custom-copy" size={20} />
+                <BiCopy
+                  onClick={handleCopy}
+                  id="custom-copy"
+                  size={20}
+                  className="cursor-pointer"
+                />
               )}
             </div>
           </div>
