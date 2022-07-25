@@ -10,7 +10,7 @@ export default function Converter(props) {
   const [binaryResult, setBinaryResult] = useState("binary");
   const [hexResult, setHexResult] = useState("hex");
   const [octResult, setOctResult] = useState("oct");
-  const [customResult, setCustomResult] = useState("Please select base first...");
+  const [customResult, setCustomResult] = useState("None");
   const [input, setInput] = useState("");
   const [invalidInput, setInvalidInput] = useState(false);
   const [customBase, setCustomBase] = useState(null);
@@ -57,7 +57,7 @@ export default function Converter(props) {
     // console.log(e.target.value === "none");
     if (e.value === "none") {
       setCustomBase(null);
-      setCustomResult("Please select base first...");
+      setCustomResult("None");
     } else {
       setCustomBase(e.target.value);
     }
@@ -206,6 +206,8 @@ export default function Converter(props) {
                 id="custom"
                 // disabled={!customBase}
               />
+
+              {/* {!customBase && <p>Select Base First</p>} */}
               {customBase && (
                 <BiCopy
                   onClick={handleCopy}
