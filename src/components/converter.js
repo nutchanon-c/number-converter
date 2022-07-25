@@ -68,26 +68,30 @@ export default function Converter(props) {
   }
   async function handleCopy(e) {
     // console.log("copy", e);
-    switch (e.currentTarget.id) {
-      case "binary-copy":
-        await navigator.clipboard.writeText(binaryResult);
-        notify("Copied to clipboard");
-        break;
-      case "oct-copy":
-        await navigator.clipboard.writeText(octResult);
-        notify("Copied to clipboard");
-        break;
-      case "hex-copy":
-        await navigator.clipboard.writeText(hexResult);
-        notify("Copied to clipboard");
-        break;
-      case "custom-copy":
-        await navigator.clipboard.writeText(customResult);
-        notify("Copied to clipboard");
-        break;
-      default:
-        notify("Error");
-      // console.log("error");
+    try {
+      switch (e.currentTarget.id) {
+        case "binary-copy":
+          await navigator.clipboard.writeText(binaryResult);
+          notify("Copied to clipboard");
+          break;
+        case "oct-copy":
+          await navigator.clipboard.writeText(octResult);
+          notify("Copied to clipboard");
+          break;
+        case "hex-copy":
+          await navigator.clipboard.writeText(hexResult);
+          notify("Copied to clipboard");
+          break;
+        case "custom-copy":
+          await navigator.clipboard.writeText(customResult);
+          notify("Copied to clipboard");
+          break;
+        default:
+          notify("Error");
+        // console.log("error");
+      }
+    } catch (e) {
+      notify("Error");
     }
   }
 
