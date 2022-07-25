@@ -10,7 +10,7 @@ export default function Converter(props) {
   const [binaryResult, setBinaryResult] = useState("binary");
   const [hexResult, setHexResult] = useState("hex");
   const [octResult, setOctResult] = useState("oct");
-  const [customResult, setCustomResult] = useState("select base");
+  const [customResult, setCustomResult] = useState("Please select base first...");
   const [input, setInput] = useState("");
   const [invalidInput, setInvalidInput] = useState(false);
   const [customBase, setCustomBase] = useState(null);
@@ -57,7 +57,7 @@ export default function Converter(props) {
     // console.log(e.target.value === "none");
     if (e.value === "none") {
       setCustomBase(null);
-      setCustomResult("select base");
+      setCustomResult("Please select base first...");
     } else {
       setCustomBase(e.target.value);
     }
@@ -178,7 +178,7 @@ export default function Converter(props) {
             <div className="flex flex-row items-center">
               <label htmlFor="binary">Custom Base: </label>
               <select
-                className="rounded-md w-16 h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
+                className="rounded-md w-[4.2rem] h-6 z-10 bg-purple-600 pl-1 cursor-pointer ml-2"
                 onChange={handleCustomBaseSelect}
                 defaultValue=""
               >
