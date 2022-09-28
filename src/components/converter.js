@@ -113,7 +113,7 @@ export default function Converter(props) {
             inputMode="numeric"
           />
           {invalidInput && <p className="text-red-500">Numbers only</p>}
-       <hr className="my-3 block md:hidden" />
+          <hr className="my-3 block md:hidden" />
         </div>
         <div className="space-y-5">
           <div className="flex flex-col gap-2">
@@ -122,7 +122,7 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-500"
+                className="border-2 border-[#3acadf] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-200"
                 disabled={true}
                 value={binaryResult}
                 id="binary"
@@ -141,7 +141,7 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-500"
+                className="border-2 border-[#729efd] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-200"
                 disabled={true}
                 value={octResult}
                 id="binary"
@@ -160,7 +160,7 @@ export default function Converter(props) {
               <input
                 type="text"
                 onChange={handleOnChange}
-                className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-500"
+                className="border-2 border-[#8a64d6] rounded-lg text-black h-10 px-3 outline-none disabled:bg-gray-200"
                 disabled={true}
                 value={hexResult}
                 id="binary"
@@ -198,7 +198,7 @@ export default function Converter(props) {
                 type="text"
                 onChange={handleOnChange}
                 className={`border-2 border-[#5c3a92] rounded-lg text-black h-10 px-3 outline-none ${
-                  customBase ? "disabled:bg-gray-500" : "disabled:bg-gray-500"
+                  customBase ? "disabled:bg-gray-200" : "disabled:bg-gray-200"
                 }`}
                 disabled={true}
                 value={customResult}
